@@ -127,6 +127,6 @@
 @endsection
 
 @section('title')
-    Registration
+    Страница регистрации
 @endsection
 

@@ -4,9 +4,10 @@
     <div id="comments-header">
         <h1>Страница Комментариев</h1>
     </div>
+    @if(Auth::check())
     <div id="comments-form">
         <h3>Пожалуйста оставте свой коментарий</h3>
-        <form method="POST">
+        <form method="POST" action="{{ route('comments.add') }}">
             @csrf
             <div>
                 <label>Оставте коментарий</label>
@@ -20,6 +21,7 @@
             </div>
         </form>
     </div>
+    @endif
     <div class="comments_wrap2">
         <h2>Комментарии:</h2>
         <ul>

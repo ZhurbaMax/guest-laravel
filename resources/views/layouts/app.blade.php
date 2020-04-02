@@ -11,11 +11,17 @@
 </head>
 <body>
 <ul class="nav">
-    <li><a class="" href="login">Войти</a></li>
-    <li><a class="" href="{{ route('auth.signup') }}">Регистрация</a></li>
-    <li><a class="" href="/">Комментарии</a></li>
-
+    @if(Auth::check())
+        <li><a class="" href="{{ route('auth.signout') }}">Выйти</a></li>
+        <li><a>Вы вошли как: {{ Auth::user()->username }}</a></li>
+        <li><a class="" href="/">Главная</a></li>
+    @else
+        <li><a class="" href="{{ route('auth.signin') }}">Войти</a></li>
+        <li><a class="" href="{{ route('auth.signup') }}">Регистрация</a></li>
+        <li><a class="" href="/">Главная</a></li>
+    @endif
 </ul>
+    @include('layouts.dop-info')
     @yield('content')
 </body>
 </html>
