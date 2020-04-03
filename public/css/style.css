@@ -280,3 +280,5 @@ body{margin: 0;}
 }
 #comments-header h1 {text-align: center;}
 #comments-form {width: 80%;}
+.new-comment {margin: 10px 0 !important;width: 360px !important;height: 80px !important;}
+.btn-home {border: solid 1px #2e2e2e; padding: 8px 20px; margin: 0px}

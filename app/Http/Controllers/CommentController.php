@@ -2,30 +2,27 @@
 
 namespace App\Http\Controllers;
 
+use DemeterChain\C;
 use Illuminate\Http\Request;
 use App\Models\Comment;
 use Illuminate\Support\Facades\Auth;
-use App\Models\User;
 
 class CommentController extends Controller
 {
     public function indexComments()
     {
-        return view('home');
+        $comments = Comment::with('user')->get();
+        return view('home', compact('comments'));
     }
-
-
 
     public function addComment(Request $request)
     {
-        $comment = $request->input("comment");
-        $user_id = auth()->user()->id;
-
-        $objComment = new Comment;
-        $objComment = $objComment->create([
-            'user_id' => $user_id,
-            'comment' => $comment,
+        $comment = Comment::create([
+            'comment' => $request->comment,
+            'user_id' => Auth::user()->id,
         ]);
+        return redirect()->route('home');
     }
-
 }
+
+

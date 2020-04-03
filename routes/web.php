@@ -18,8 +18,9 @@ Route::post('/signin', 'AuthController@postSignin');
 
 Route::get('/signout', 'AuthController@getSignout')->name('auth.signout');
 
-Route::post('/', 'CommentController@addComment')->name('comments.add');
+//комментарии
 
+Route::any('/add-comment', 'CommentController@addComment')->name('layout.home');
 
 
 
